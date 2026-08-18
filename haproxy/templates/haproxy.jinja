@@ -135,6 +135,9 @@ peers {{ group }}
     {%- if 'shards' in peers %}
     shards {{ peers.shards }}
     {%- endif %}
+    {%- for table, data in peers.get('table', {}).items() %}
+    table {{ table }} {{ data }}
+    {%- endfor %}
 {%- endfor %}
 
 #------------------
